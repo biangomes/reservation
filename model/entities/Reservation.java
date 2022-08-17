@@ -48,9 +48,9 @@ public class Reservation {
     public String toString() {
         return "Room "
                 + roomNumber
-                + ", check in date (dd/MM/yyyy): "
+                + ", check in date: "
                 + sdf.format(checkIn)
-                + "Check out date(dd/MM/yyyy): "
+                + "Check out date: "
                 + sdf.format(checkOut)
                 + ", " + duration() + " nights";
     }
