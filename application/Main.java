@@ -22,6 +22,7 @@ public class Main {
         int roomNumber = sc.nextInt();
         System.out.print("Check in (dd/mm/yyyy): ");
         Date checkIn = sdf.parse(sc.next());
+        System.out.print("\n");
         System.out.print("Check out (dd/mm/yyyy): ");
         Date checkOut = sdf.parse(sc.next());
 
@@ -31,6 +32,27 @@ public class Main {
         } else {
             Reservation reservation = new Reservation(roomNumber, checkIn, checkOut);
             System.out.println("Reservation: " + reservation);
+            
+            System.out.println();
+            System.out.println("Enter the data to update the reservation: ");
+            System.out.println("Check-in (dd/mm/yyyy): ");
+            checkIn = sdf.parse(sc.next());
+            System.out.println("Check-out (dd/mm/yyyy): ");
+            checkOut = sdf.parse(sc.next());
+
+
+            Date now = new Date();
+            if (checkIn.before(now) || checkOut.before(now)) {
+            	System.out.println("Erro na reserva: a data de reserva deve ser futura.");
+            } else if (!checkOut.after(checkIn)) {
+            	System.out.println("Erro na reserva: data de chek-out deve ser posterior ao check-in");
+            } else {
+            	reservation.updateDates(checkIn, checkOut);
+            	System.out.println("Reservation: " + reservation);
+            }
+            
         }
+        
+        sc.close();
     }
 }

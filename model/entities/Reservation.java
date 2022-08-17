@@ -49,7 +49,7 @@ public class Reservation {
         return "Room "
                 + roomNumber
                 + ", check in date: "
-                + sdf.format(checkIn)
+                + sdf.format(checkIn) + "\n"
                 + "Check out date: "
                 + sdf.format(checkOut)
                 + ", " + duration() + " nights";
