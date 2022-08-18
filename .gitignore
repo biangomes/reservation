@@ -1,5 +1,6 @@
 # Compiled class file
 *.class
+out/
 
 # Log file
 *.log
@@ -25,3 +26,9 @@ hs_err_pid*
 # Eclipse
 .classpath
 .project
+
+# IntelliJ
+.idea
+
+# VS Code
+.vscode/
