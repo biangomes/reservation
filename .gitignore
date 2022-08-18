@@ -1,6 +1,6 @@
 # Compiled class file
 *.class
-out/
+out/*
 
 # Log file
 *.log
@@ -28,7 +28,7 @@ hs_err_pid*
 .project
 
 # IntelliJ
-.idea
+.idea/
 
 # VS Code
 .vscode/
