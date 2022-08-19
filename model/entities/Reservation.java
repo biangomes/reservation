@@ -38,10 +38,20 @@ public class Reservation {
         return TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);      // converte milissegundos para dias
     }
 
-    public void updateDates(Date checkIn, Date checkOut) {
-        // TODO: implementar a logica de atualizacao de datas
+    public String updateDates(Date checkIn, Date checkOut) {
+
+        Date now = new Date();
+
+        if (checkIn.before(now) || checkOut.before(now)) {
+            return "Erro na reserva: a data de reserva deve ser futura.";
+        }
+        if (!checkOut.after(checkIn)) {
+            return "Erro na reserva: data de chek-out deve ser posterior ao check-in";
+        }
+
         this.checkIn = checkIn;
         this.checkOut = checkOut;
+        return null;
     }
 
     @Override
