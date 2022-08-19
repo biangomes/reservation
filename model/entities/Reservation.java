@@ -42,10 +42,12 @@ public class Reservation {
 
         Date now = new Date();
 
+        // se a data de checkIn for antes de agora OU checkOut for antes de AGORA
         if (checkIn.before(now) || checkOut.before(now)) {
             return "Erro na reserva: a data de reserva deve ser futura.";
         }
-        if (!checkOut.after(checkIn)) {
+        // se a data de checkOut for antes
+        if (checkOut.before(checkIn)) {
             return "Erro na reserva: data de chek-out deve ser posterior ao check-in";
         }
 
