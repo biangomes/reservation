@@ -40,6 +40,11 @@ public class Reservation {
 
     public String updateDates(Date checkIn, Date checkOut) {
 
+        /*
+         * ao debuggar, vi que a data devolvida está em JANEIRO
+         * checkIn: "Sat Jan 22 00:08:00 COT 2022"
+         * checkOut: "Mon Jan 24 00:08:00 COT 2022"
+         */
         Date now = new Date();
 
         // se a data de checkIn for antes de agora OU checkOut for antes de AGORA
