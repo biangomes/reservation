@@ -38,27 +38,22 @@ public class Reservation {
         return TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);      // converte milissegundos para dias
     }
 
-    public String updateDates(Date checkIn, Date checkOut) {
-
-        /*
-         * ao debuggar, vi que a data devolvida está em JANEIRO
-         * checkIn: "Sat Jan 22 00:08:00 COT 2022"
-         * checkOut: "Mon Jan 24 00:08:00 COT 2022"
-         */
+    public void updateDates(Date checkIn, Date checkOut) {
+        
         Date now = new Date();
 
         // se a data de checkIn for antes de agora OU checkOut for antes de AGORA
         if (checkIn.before(now) || checkOut.before(now)) {
-            return "Erro na reserva: a data de reserva deve ser futura.";
+            throw new IllegalArgumentException("Erro na reserva: a data de reserva deve ser futura.");
         }
         // se a data de checkOut for antes
         if (checkOut.before(checkIn)) {
-            return "Erro na reserva: data de chek-out deve ser posterior ao check-in";
+            throw new IllegalArgumentException("Erro na reserva: data de chek-out deve ser posterior ao check-in");
         }
 
         this.checkIn = checkIn;
         this.checkOut = checkOut;
-        return null;
+        //return null;
     }
 
     @Override
