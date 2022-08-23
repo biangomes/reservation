@@ -39,7 +39,7 @@ public class Reservation {
     }
 
     public void updateDates(Date checkIn, Date checkOut) {
-        
+
         Date now = new Date();
 
         // se a data de checkIn for antes de agora OU checkOut for antes de AGORA
@@ -47,7 +47,7 @@ public class Reservation {
             throw new IllegalArgumentException("Erro na reserva: a data de reserva deve ser futura.");
         }
         // se a data de checkOut for antes
-        if (checkOut.before(checkIn)) {
+        if (!checkOut.after(checkIn)) {
             throw new IllegalArgumentException("Erro na reserva: data de chek-out deve ser posterior ao check-in");
         }
 

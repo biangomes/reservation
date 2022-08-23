@@ -37,11 +37,14 @@ public class Main {
             System.out.println("Check-out (dd/MM/yyyy): ");
             checkOut = sdf.parse(sc.next());
 
-            String error = reservation.updateDates(checkIn, checkOut);
+            reservation.updateDates(checkIn, checkOut);
             System.out.println("Reservation: " + reservation);
         }
         catch (ParseException e) {
             System.out.println("Invalid date format");
+        }
+        catch (IllegalArgumentException e) {
+            System.out.print("Error in reservation: " + e.getMessage());
         }
 
 
